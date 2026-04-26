@@ -33,8 +33,24 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            XfitPrototypeApp()
+    val exercises = remember {
+        listOf(
+            ExerciseCatalog.all[0],
+            ExerciseCatalog.all[1],
+            ExerciseCatalog.all[2]
+        )
+    }
+
+    FifteenRmEntryScreen(
+        selectedExercises = exercises,
+        onBack = {},
+        onGenerateProgram = { programExercises ->
+            val stage = WorkoutGenerator.generateStage(programExercises)
+
+            println(stage.sessions.first())
         }
+    )
+}
     }
 }
 
