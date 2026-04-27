@@ -1,3 +1,9 @@
+
 .env.local
 .env.docker
 backups/
+logs/
+dev-up.ps1
+dev-down.ps1
+serve-local.ps1
+compose.yml
